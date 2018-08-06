@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  ruby:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 4567:4567
+    command: 'ruby myapp.rb -o 0.0.0.0'
