@@ -65,6 +65,17 @@ post '/upload' do
   erb :show_image
 end
 
+get '/top' do
+  erb :top, layout: :app
+end
+
+get '/about' do
+  erb :about, layout: :app
+end
+
+get '/school' do
+  erb :school, layout: :app
+end
 get '/users' do
   user1 = User.new('hoge', 'fuga', 39)
   user2 = User.new('Tachibana', 'Yutaka', 30)
