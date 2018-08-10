@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 
+enable :sessions
+
 class User
   attr_accessor :first_name, :last_name, :age
 
@@ -76,6 +78,19 @@ end
 get '/school' do
   erb :school, layout: :app
 end
+
+get '/form_session' do
+  erb :form_input_session
+end
+
+post '/form_session' do
+  session[:name] = params[:name]
+  session[:email] = params[:email]
+  session[:content] = params[:content]
+
+  redirect '/form_session'
+end
+
 get '/users' do
   user1 = User.new('hoge', 'fuga', 39)
   user2 = User.new('Tachibana', 'Yutaka', 30)
