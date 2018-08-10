@@ -1,11 +1,6 @@
-<!-- /views/page.erb -->
-<html>
-<body>
-  <h1>Users</h1>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= user.name %></li>
-    <% end %>
-  </ul>
-</body>
-</html>
+<h1>Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= "#{user['last_name']} #{user['first_name']} #{user['age']}" %></li>
+  <% end %>
+</ul>

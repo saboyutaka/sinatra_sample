@@ -92,13 +92,14 @@ post '/form_session' do
 end
 
 get '/users' do
-  user1 = User.new('hoge', 'fuga', 39)
-  user2 = User.new('Tachibana', 'Yutaka', 30)
-  user3 = User.new('Nakatsukasa', 'Yuya', 28)
-  user4 = User.new('Suzuki', 'Takayuki', 28)
-  user5 = User.new('Teraji', 'Takashi', 32)
+  user1 = { 'last_name' => 'Tachibana', 'first_name' => 'Yutaka', 'age' => 30 }
+  user2 = { 'last_name' => 'Nakatsukasa', 'first_name' => 'Yuya', 'age' => 28 }
+  user3 = { 'last_name' => 'Suzuki', 'first_name' => 'Takayuki', 'age' => 28 }
+  user4 = { 'last_name' => 'Teraji', 'first_name' => 'Takashi', 'age' => 32 }
+  user5 = { 'last_name' => 'Tamaki', 'first_name' => 'Ko', 'age' => 22 }
+  @users = [user1, user2, user3, user4, user5]
 
-  @users = [user1, user2, user3, user4]
+  @users = db.query('SELECT * FROM users').to_a = db.query('SELECT * FROM users').to_a
 
-  erb :users
+  erb :users, layout: :app
 end
